@@ -1,8 +1,4 @@
 - name: Repository Dispatch
-        uses: harshsilori/github-action@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: my-event
 on: 
     repository_dispatch:
         types: [my-event]
