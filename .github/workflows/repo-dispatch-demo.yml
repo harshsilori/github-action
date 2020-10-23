@@ -1,9 +1,12 @@
 - name: Repository Dispatch
 on: 
     repository_dispatch:
-        types: [my-event]
+        types: [opened, deleted]
 jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+        - run: npm install -g bats
+        - run: bats -v
